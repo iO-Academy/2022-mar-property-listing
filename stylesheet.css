@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin:0px;
+}
+
+.navbar {
+    background-color: #005275;
+    /*height: 50px;*/
+}
+
+.button_bar {
+    background-color: #efefef;
+}
