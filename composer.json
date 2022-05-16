@@ -1,0 +1,11 @@
+{
+    "name": "eyupstudent/2022-mar-property-listing",
+    "autoload": {
+        "psr-4": {
+            "PennyLaneProperties\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
