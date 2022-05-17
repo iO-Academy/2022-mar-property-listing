@@ -72,6 +72,7 @@ use PennyLaneProperties\Database\DatabaseConnector;
                     <p class="card-text">Address: 34 Blonk Street, Sheffield, S22 2YB</p>
                     <a href="displayPage.php?agent_ref=CSL123_100259" class="btn btn-primary btn-sm">PROPERTY DETAILS</a>
                 </div>
+
             </div>
         </div>
     </div>
