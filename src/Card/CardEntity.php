@@ -20,14 +20,14 @@ class CardEntity
     public function __construct($agent_ref, $image, $address_1, $address_2, $town, $postcode, $status, $type)
     {
         if (is_numeric($address_1)){
-        $this->address = $address_1 . ' '. $address_2 . ', ' . $town . ', ' . $postcode;
+            $this->address = $address_1 . ' '. $address_2 . ', ' . $town . ', ' . $postcode;
         } else {
             $this->address = $address_1 . ', '. $address_2 . ', ' . $town . ', ' . $postcode;
         };
-        $this->status = $status;
-        $this->type = $type;
+            $this->status = $status;
+            $this->type = $type;
         if($image){
-            $this->imageUrl='https://dev.io-academy.uk/resources/property-feed/images/' . $image;
+            $this->imageUrl = 'https://dev.io-academy.uk/resources/property-feed/images/' . $image;
         }
         $this->agentRef = $agent_ref;
     }
@@ -65,6 +65,7 @@ class CardEntity
     }
 
     /**
+     * This will be used in story 3
      * @return string
      */
     public function getAgentRef(): string

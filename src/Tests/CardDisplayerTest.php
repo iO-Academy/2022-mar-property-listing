@@ -22,8 +22,6 @@ class CardDisplayerTest extends TestCase
         $cardEntityMockTwo->method('getImageUrl')->willReturn('https://dev.io-academy.uk/resources/property-feed/images/CSL123_100297_IMG_00.JPG');
         $cardEntityMockTwo->method('getAddress')->willReturn('30 Tulliver Road, Nuneaton, CV10 7AL');
 
-
-
         $expected = "<div class='col-sm-12 col-md-4 col-lg-3 '>"
         ."<div class='card card__status card__status--sale border border-dark position-relative'>"
         ."<span class='visually-hidden'>New alerts</span>"
@@ -43,17 +41,12 @@ class CardDisplayerTest extends TestCase
         $cardEntitiesMock = [$cardEntityMock, $cardEntityMockTwo];
         $actual=CardDisplayer::displayCards($cardEntitiesMock);
         $this->assertEquals($expected, $actual);
-
     }
 
     Public function testCardDisplayerDisplayCardFailure(){
-
         $failureTestData = ['house 1', 'house 2', 'house3'];
         $expected = '';
         $actual = CardDisplayer::displayCards($failureTestData);
         $this->assertEquals($expected, $actual);
-
     }
-
-
 }
