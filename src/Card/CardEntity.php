@@ -19,7 +19,7 @@ class CardEntity
      */
     public function __construct($agent_ref, $image, $address_1, $address_2, $town, $postcode, $status, $type)
     {
-        if (is_int($address_1)){
+        if (is_numeric($address_1)){
         $this->address = $address_1 . ' '. $address_2 . ', ' . $town . ', ' . $postcode;
         } else {
             $this->address = $address_1 . ', '. $address_2 . ', ' . $town . ', ' . $postcode;

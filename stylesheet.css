@@ -12,6 +12,10 @@ body {
 
 .card {
     position: relative;
+    margin: 20px 10px;
+
+
+
 }
 
 .card__status::before {

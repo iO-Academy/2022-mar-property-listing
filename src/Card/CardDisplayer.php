@@ -10,23 +10,24 @@ class CardDisplayer
      * Displays card html with data from DB
      *
      * @param array $cardEntities<CardEntity>
-     * @return void
+     * @return string
      */
-    static public function cardDisplay(array $cardEntities)
+    static public function displayCards(array $cardEntities): string
     {
+        $returnString= '';
     foreach ($cardEntities as $cardEntity){
-        echo "<div class='col-sm-12 col-md-4 col-lg-3'>
+        $returnString .= "<div class='col-sm-12 col-md-4 col-lg-3 '>
         <div class='card card__status card__status";
         if ($cardEntity->getStatus() == 'Sold'){
-            echo '--sold';
+            $returnString .= '--sold';
         } elseif ($cardEntity->getStatus() == 'For Sale'){
-            echo '--sale';
-        } elseif ($cardEntity->getStatus() == 'Let'){
-            echo '--letAgreed';
+            $returnString .= '--sale';
+        } elseif ($cardEntity->getStatus() == 'Let Agreed'){
+            $returnString .='--letAgreed';
         } else {
-            echo '--toLet';
+            $returnString .= '--toLet';
         }
-        echo " border border-dark position-relative'>
+        $returnString .= " border border-dark position-relative'>
         <span class='visually-hidden'>New alerts</span>
         <img src='{$cardEntity->getImageUrl()}' class='card-img-top' alt='Photo of {$cardEntity->getAddress()}'>
         <div class='card-body'>
@@ -34,5 +35,6 @@ class CardDisplayer
         <a href='#' class='btn btn-primary btn-sm align-items-end'>PROPERTY DETAILS</a>
         </div></div></div>";
     }
+    return $returnString;
     }
 }
