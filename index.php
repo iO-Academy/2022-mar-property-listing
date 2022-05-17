@@ -40,7 +40,8 @@ echo '</pre>'
 <!--    </div>-->
 <main class="container">
     <div class="row py-4 ">
-       <?= CardDisplayer::displayCards(CardHydrator::fetchCardDetailsFromDB(DatabaseConnector::connect())); ?>
+       <?= CardDisplayer::displayCards(CardHydrator::fetchCardDetailsFromDB(DatabaseConnector::connect()));?>
+
     </div>
 
 </main>

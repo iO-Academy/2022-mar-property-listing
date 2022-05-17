@@ -13,14 +13,12 @@ class CardDisplayerTest extends TestCase
     public function testCardDisplayerDisplayCardSuccess(){
     //test Data
         $cardEntityMock = $this->createMock(CardEntity::class);
-        $cardEntityMock->method('getStatus')
-            -> willReturn('For Sale');
+        $cardEntityMock->method('getStatus')-> willReturn('For Sale');
         $cardEntityMock->method('getImageUrl')->willReturn('https://dev.io-academy.uk/resources/property-feed/images/CSL123_100291_IMG_00.JPG');
         $cardEntityMock->method('getAddress')->willReturn('171 Lutterworth Road, Nuneaton, CV11 6PY');
 
         $cardEntityMockTwo = $this->createMock(CardEntity::class);
-        $cardEntityMockTwo->method('getStatus')
-            ->willReturn('Sold');
+        $cardEntityMockTwo->method('getStatus')->willReturn('Sold');
         $cardEntityMockTwo->method('getImageUrl')->willReturn('https://dev.io-academy.uk/resources/property-feed/images/CSL123_100297_IMG_00.JPG');
         $cardEntityMockTwo->method('getAddress')->willReturn('30 Tulliver Road, Nuneaton, CV10 7AL');
 
@@ -42,7 +40,6 @@ class CardDisplayerTest extends TestCase
         ."<a href='#' class='btn btn-primary btn-sm align-items-end'>PROPERTY DETAILS</a>"
         ."</div></div></div>";
 
-
         $cardEntitiesMock = [$cardEntityMock, $cardEntityMockTwo];
         $actual=CardDisplayer::displayCards($cardEntitiesMock);
         $this->assertEquals($expected, $actual);
@@ -55,7 +52,6 @@ class CardDisplayerTest extends TestCase
         $expected = '';
         $actual = CardDisplayer::displayCards($failureTestData);
         $this->assertEquals($expected, $actual);
-
 
     }
 
