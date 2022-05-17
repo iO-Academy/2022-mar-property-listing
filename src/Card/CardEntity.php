@@ -32,30 +32,47 @@ class CardEntity
         $this->agentRef = $agent_ref;
     }
 
-
     /**
-     * @param string $address
+     * @return string
      */
-    public function setAddress(string $address): void
+    public function getAddress(): string
     {
-        $this->address = $address;
+        return $this->address;
     }
 
     /**
-     * @param string $status
+     * @return string
      */
-    public function setStatus(string $status): void
+    public function getStatus(): string
     {
-        $this->status = $status;
+        return $this->status;
     }
 
     /**
-     * @param string $imageUrl
+     * @return string
      */
-    public function setImageUrl(string $imageUrl): void
+    public function getType(): string
     {
-        $this->imageUrl = $imageUrl;
+        return $this->type;
     }
+
+    /**
+     * @return string
+     */
+    public function getImageUrl(): string
+    {
+        return $this->imageUrl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAgentRef(): string
+    {
+        return $this->agentRef;
+    }
+
+
 
 
 }
