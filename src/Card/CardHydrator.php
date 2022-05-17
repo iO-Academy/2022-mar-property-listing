@@ -1,6 +1,8 @@
 <?php
 
-namespace PennyLaneProperties;
+namespace PennyLaneProperties\Card;
+
+use PDO;
 
 class CardHydrator
 {
@@ -8,7 +10,7 @@ class CardHydrator
      * @param PDO $db
      * @return array<CardEntity>
      */
-    public static function getProperties(PDO $db): array
+    public static function fetchCardDetailsFromDB(PDO $db): array
     {
         $query = $db->prepare("SELECT  `agent_ref`, `image`, `address_1`, `address_2`, `town`, `postcode`, `statuses`.
                             `status_name` AS 'status', `types`.`type_name` AS 'type' FROM `properties` LEFT JOIN `statuses` ON `properties`.`status` = 

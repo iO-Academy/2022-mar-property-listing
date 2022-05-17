@@ -1,6 +1,6 @@
 <?php
 
-namespace PennyLaneProperties;
+namespace PennyLaneProperties\Card;
 
 class CardEntity
 {
@@ -26,7 +26,7 @@ class CardEntity
         };
         $this->status = $status;
         $this->type = $type;
-        if(isset($image)){
+        if($image){
             $this->imageUrl='https://dev.io-academy.uk/resources/property-feed/images/' . $image;
         }
         $this->agentRef = $agent_ref;

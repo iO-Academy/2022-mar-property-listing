@@ -1,5 +1,11 @@
 <?php
 require_once 'vendor/autoload.php';
+use PennyLaneProperties\Card\{CardHydrator,CardEntity};
+use PennyLaneProperties\Database\DatabaseConnector;
+
+echo '<pre>';
+var_dump((new CardHydrator)->fetchCardDetailsFromDB(DatabaseConnector::connect()));
+echo '</pre>'
 ?>
 
 <!DOCTYPE html>
