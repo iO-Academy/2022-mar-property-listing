@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.5-10.7.3-MariaDB-1:10.7.3+maria~focal)
 # Database: property-listings
-# Generation Time: 2022-05-16 14:14:25 +0000
+# Generation Time: 2022-05-18 09:08:27 +0000
 # ************************************************************
 
 
@@ -23,17 +23,19 @@ SET NAMES utf8mb4;
 # Dump of table properties
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `properties`;
+
 CREATE TABLE `properties` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `agent_ref` varchar(40) DEFAULT NULL,
-  `address_1` varchar(40) DEFAULT NULL,
-  `address_2` varchar(40) DEFAULT NULL,
-  `town` varchar(40) DEFAULT NULL,
+  `agent_ref` varchar(100) DEFAULT NULL,
+  `address_1` varchar(1000) DEFAULT NULL,
+  `address_2` varchar(1000) DEFAULT NULL,
+  `town` varchar(1000) DEFAULT NULL,
   `postcode` varchar(40) DEFAULT NULL,
   `description` text DEFAULT NULL,
   `bedrooms` int(10) DEFAULT NULL,
   `price` int(10) DEFAULT NULL,
-  `image` varchar(40) DEFAULT NULL,
+  `image` varchar(10000) DEFAULT NULL,
   `type` tinyint(4) DEFAULT NULL,
   `status` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -43,6 +45,8 @@ CREATE TABLE `properties` (
 
 # Dump of table statuses
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `statuses`;
 
 CREATE TABLE `statuses` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -54,6 +58,8 @@ CREATE TABLE `statuses` (
 
 # Dump of table types
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `types`;
 
 CREATE TABLE `types` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
