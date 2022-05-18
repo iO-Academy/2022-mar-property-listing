@@ -5,7 +5,7 @@ namespace PennyLaneProperties\Card;
 class CardDisplayer
 {
     /**
-     * Displays card html with data from DB
+     * Displays cards html with data from DB
      *
      * @param array $cardEntities <CardEntity>
      * @return string

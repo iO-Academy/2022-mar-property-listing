@@ -4,4 +4,9 @@ use PennyLaneProperties\Database\{APIHandler, DatabaseConnector, DatabaseImporte
 
 require_once "vendor/autoload.php";
 
-(new DatabaseImporter(DatabaseConnector::connect(), new APIHandler))->populateDatabase();
+$db = DatabaseConnector::connect();
+
+$handler = new APIHandler();
+
+$importer = new DatabaseImporter($db, $handler);
+$importer->populateDatabase();

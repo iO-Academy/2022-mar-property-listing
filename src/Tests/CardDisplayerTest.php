@@ -11,7 +11,6 @@ use \PHPUnit\Framework\TestCase;
 class CardDisplayerTest extends TestCase
 {
     public function testCardDisplayerDisplayCardSuccess(){
-    //test Data
         $cardEntityMock = $this->createMock(CardEntity::class);
         $cardEntityMock->method('getStatus')-> willReturn('For Sale');
         $cardEntityMock->method('getImageUrl')->willReturn('https://dev.io-academy.uk/resources/property-feed/images/CSL123_100291_IMG_00.JPG');

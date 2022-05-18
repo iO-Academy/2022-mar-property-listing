@@ -6,12 +6,12 @@ use PDO;
 
 class DatabaseImporter
 {
-    protected PDO        $db;
+    protected PDO $db;
     protected APIHandler $APIHandler;
 
     public function __construct(PDO $db, APIHandler $APIHandler)
     {
-        $this->db         = $db;
+        $this->db = $db;
         $this->APIHandler = $APIHandler;
     }
 
