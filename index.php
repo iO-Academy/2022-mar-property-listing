@@ -5,6 +5,11 @@ use PennyLaneProperties\Database\DatabaseConnector;
 
 $db = DatabaseConnector::getDbConnection();
 $properties = PropertyHydrator::fetchPropertyDetailsFromDB($db);
+$cardsHtml = '';
+foreach ($properties as $property){
+    $cardsHtml .= $property->displayCard();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +29,7 @@ $properties = PropertyHydrator::fetchPropertyDetailsFromDB($db);
         </div>
         <main class="container">
             <div class="row py-4 ">
-               <?php foreach ($properties as $property){echo $property->displayCard();};?>
+               <?=$cardsHtml?>
             </div>
         </main>
     </body>

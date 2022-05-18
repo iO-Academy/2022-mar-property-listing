@@ -6,13 +6,15 @@ use PDO;
 
 class DatabaseImporter
 {
+
     protected PDO     $db;
     protected ApiData $apiData;
 
-    public function __construct(PDO $db, ApiData $APIHandler)
+    public function __construct(PDO $db, ApiData $apiData)
     {
+
         $this->db      = $db;
-        $this->apiData = $APIHandler;
+        $this->apiData = $apiData;
     }
 
     protected function createTables()
