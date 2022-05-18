@@ -27,6 +27,21 @@ foreach ($properties as $property){
         <div class="container-fluid justify-content-center navbar">
             <img src="Assets/pennyLaneLogo2.svg">
         </div>
+        <form method="get">
+            <div class="container button_bar">
+                <div class="d-flex p-4 justify-content-center align-items-baseline gap-3">
+                    <div class="column gap-3">
+                    <p class="text-center">FILTER BY:</p>
+                </div>
+                <div class="column gap-3">
+                 <button type="submit" name="type" value="1" class="btn btn-success m-0">SALES</button>
+                </div>
+                <div class="column gap-3">
+                 <button type="submit" name="type" value="2" class="btn btn-primary">LETTINGS</button>
+                </div>
+                </div>
+            </div>
+        </form>
         <main class="container">
             <div class="row py-4 ">
                <?=$cardsHtml?>
