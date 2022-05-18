@@ -7,13 +7,13 @@ use PDO;
 class DatabaseImporter
 {
 
-    protected PDO     $db;
+    protected PDO $db;
     protected ApiData $apiData;
 
     public function __construct(PDO $db, ApiData $apiData)
     {
 
-        $this->db      = $db;
+        $this->db = $db;
         $this->apiData = $apiData;
     }
 
