@@ -32,26 +32,17 @@ class ApiData
         $this->statuses   = $statuses;
     }
 
-    /**
-     * @return array|mixed
-     */
-    public function getProperties(): mixed
+    public function getProperties()
     {
         return $this->properties;
     }
 
-    /**
-     * @return array|mixed
-     */
-    public function getTypes(): mixed
+    public function getTypes()
     {
         return $this->types;
     }
 
-    /**
-     * @return array|mixed
-     */
-    public function getStatuses(): mixed
+    public function getStatuses()
     {
         return $this->statuses;
     }
