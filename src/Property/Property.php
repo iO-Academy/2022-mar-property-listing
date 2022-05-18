@@ -43,6 +43,17 @@ class Property
         return $returnString;
     }
 
+    public function displayPropertyPage(): string
+    {
+        $returnString = "<div class='row mt-5'>"
+            . "<div class='card mb-3 rounded card__status card__status--sold'>"
+            . "<img class='img-fluid' src='https://dev.io-academy.uk/resources/property-feed/images/{$this->getImage()}'"
+            . "<div class='card-body'>"
+            . "<h5 class='card-title text-wrap'>{$this->getFullAddress()}</h5>";
+
+        return $returnString;
+    }
+
     /**
      * @return string
      */
