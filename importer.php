@@ -1,7 +1,12 @@
 <?php
 
-use PennyLaneProperties\Database\{APIHandler, DatabaseConnector, DatabaseImporter};
+use PennyLaneProperties\Database\{ApiData, DatabaseConnector, DatabaseImporter};
 
 require_once "vendor/autoload.php";
 
-(new DatabaseImporter(DatabaseConnector::connect(), new APIHandler))->populateDatabase();
+$db = DatabaseConnector::getDbConnectionFromTerminal();
+
+$data = new ApiData();
+
+$importer = new DatabaseImporter($db, $data);
+$importer->populateDatabase();

@@ -2,7 +2,7 @@
 
 namespace PennyLaneProperties\Database;
 
-class APIHandler
+class ApiData
 {
     protected array $properties;
     protected array $types;
@@ -35,7 +35,7 @@ class APIHandler
     /**
      * @return array|mixed
      */
-    public function getProperties()
+    public function getProperties(): mixed
     {
         return $this->properties;
     }
@@ -43,7 +43,7 @@ class APIHandler
     /**
      * @return array|mixed
      */
-    public function getTypes()
+    public function getTypes(): mixed
     {
         return $this->types;
     }
@@ -51,7 +51,7 @@ class APIHandler
     /**
      * @return array|mixed
      */
-    public function getStatuses()
+    public function getStatuses(): mixed
     {
         return $this->statuses;
     }

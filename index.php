@@ -1,8 +1,10 @@
 <?php
 require_once 'vendor/autoload.php';
-use PennyLaneProperties\Card\{CardHydrator, CardDisplayer};
+use PennyLaneProperties\Property\{PropertyHydrator};
 use PennyLaneProperties\Database\DatabaseConnector;
 
+$db = DatabaseConnector::getDbConnection();
+$properties = PropertyHydrator::fetchPropertyDetailsFromDB($db);
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +24,7 @@ use PennyLaneProperties\Database\DatabaseConnector;
         </div>
         <main class="container">
             <div class="row py-4 ">
-               <?= CardDisplayer::displayCards(CardHydrator::fetchCardDetailsFromDB(DatabaseConnector::connect()));?>
+               <?php foreach ($properties as $property){echo $property->displayCard();};?>
             </div>
         </main>
     </body>
