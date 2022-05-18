@@ -8,11 +8,11 @@ $agentRef = 'CSL123_100259';
 
 $db = DatabaseConnector::getDbConnection();
 $property = PropertyHydrator::fetchPropertyDetailsFromDB($db, $agentRef);
-var_dump($property);
+
 
 
 $propertyHtml = $property->displayPropertyPage();
-echo $propertyHtml;
+
 
 ?>
 

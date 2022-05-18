@@ -12,6 +12,9 @@ class Property
     protected string $postcode;
     protected string $status;
     protected string $type;
+    protected int $bedrooms;
+    protected string $description;
+    protected int $price;
     protected string $imageUrl = "Assets/housePlaceholder.png";
 
     public function displayCard(): string
@@ -43,13 +46,71 @@ class Property
         return $returnString;
     }
 
+    /**
+     * @return int
+     */
+    public function getBedrooms(): int
+    {
+        return $this->bedrooms;
+    }
+
+    /**
+     * @param int $bedrooms
+     */
+    public function setBedrooms(int $bedrooms): void
+    {
+        $this->bedrooms = $bedrooms;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPrice(): int
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param int $price
+     */
+    public function setPrice(int $price): void
+    {
+        $this->price = $price;
+    }
+
+    public function getFormatPrice(int $price): string
+    {
+        $formatPrice = number_format($this->getPrice(),0 , ".", ",");
+        return $formatPrice;
+    }
+
     public function displayPropertyPage(): string
     {
         $returnString = "<div class='row mt-5'>"
             . "<div class='card mb-3 rounded card__status card__status--sold'>"
             . "<img class='img-fluid' src='https://dev.io-academy.uk/resources/property-feed/images/{$this->getImage()}'"
             . "<div class='card-body'>"
-            . "<h5 class='card-title text-wrap'>{$this->getFullAddress()}</h5>";
+            . "<h5 class='card-title text-wrap'>{$this->getFullAddress()}</h5>"
+            .  "<p class='card-text text-wrap'>£{$this->getFormatPrice($this->getPrice())}</p>"
+            .  "<p class='card-text text-wrap'>{$this->getBedrooms()} Bedrooms</p>"
+            .  "<p class='card-text text-wrap'>{$this->getDescription()}</p>";
+
 
         return $returnString;
     }
