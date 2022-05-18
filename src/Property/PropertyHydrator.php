@@ -10,7 +10,7 @@ class PropertyHydrator
      * @param PDO $db
      * @return array<Property>
      */
-    public static function fetchPropertyDetailsFromDB(PDO $db): array
+    public static function fetchPropertiesDetailsFromDB(PDO $db): array
     {
         $query = $db->prepare("SELECT  `agent_ref` AS 'agentRef', `image`, `address_1`, `address_2`, `town`, `postcode`, `statuses`.
                 `status_name` AS 'status', `types`.`type_name` AS 'type' FROM `properties` LEFT JOIN `statuses` ON `properties`.`status` = 

@@ -4,7 +4,7 @@ use PennyLaneProperties\Property\{PropertyHydrator};
 use PennyLaneProperties\Database\DatabaseConnector;
 
 $db = DatabaseConnector::getDbConnection();
-$properties = PropertyHydrator::fetchPropertyDetailsFromDB($db);
+$properties = PropertyHydrator::fetchPropertiesDetailsFromDB($db);
 $cardsHtml = '';
 foreach ($properties as $property){
     $cardsHtml .= $property->displayCard();
