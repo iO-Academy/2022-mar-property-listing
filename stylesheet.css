@@ -15,8 +15,8 @@ body {
 }
 
 .card__status::before {
-    width: 75px;
-    height: 75px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     left: 100%;
     transform: translate(-70%, -30%);

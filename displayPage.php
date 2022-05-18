@@ -9,9 +9,7 @@ $displayHydrator = new DisplayPageHydrator();
 
 $db = DatabaseConnector::connect();
 $propertyData = $displayHydrator->getProperty($db, 'CSL123_100259');
-echo '<pre>';
-var_dump($propertyData);
-echo '</re>';
+$formattedPrice = number_format($propertyData ["price"], 0, '.', ',');
 
 ?>
 <!DOCTYPE html>
@@ -31,13 +29,14 @@ echo '</re>';
     </div>
     <div class="container">
 
-        <div class="row">
-            <div class="card mb-3">
-                <img src="..." class="card-img-top" alt="...">
+        <div class="row mt-5">
+            <div class="card mb-3 rounded card__status card__status--sold">
+                <img class="img-fluid" src="<?php echo "https://dev.io-academy.uk/resources/property-feed/images/{$propertyData["image"]}" ?>"  class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo "{$propertyData["address_1"]}, {$propertyData["address_2"]}" ?></h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <h5 class="card-title text-wrap"><?php echo "{$propertyData["address_1"]}, {$propertyData["address_2"]}, {$propertyData["town"]}, {$propertyData["postcode"]}" ?></h5>
+                    <p class="card-text text-wrap"><?php echo "£{$formattedPrice}" ?></p>
+                    <p class="card-text text-wrap"><?php echo "{$propertyData["bedrooms"]} Bedrooms"?></p>
+                    <p class="card-text text-wrap"><?php echo "{$propertyData ["description"]}" ?></p>
                 </div>
             </div>
         </div>
