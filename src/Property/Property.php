@@ -14,7 +14,6 @@ class Property
     protected string $type;
     protected string $imageUrl = "Assets/housePlaceholder.png";
 
-
     public function displayCard(): string
     {
         $returnString = "<div class='col-sm-12 col-md-4 col-lg-3 '>"
@@ -42,6 +41,46 @@ class Property
             ."</div></div></div>";
 
         return $returnString;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddress1(): string
+    {
+        return $this->address_1;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddress2(): string
+    {
+        return $this->address_2;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTown(): string
+    {
+        return $this->town;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPostcode(): string
+    {
+        return $this->postcode;
     }
 
     /**
