@@ -40,7 +40,7 @@ class Property
             . "' class='card-img-top' alt='Photo of {$this->getFullAddress()}'>"
             ."<div class='card-body'>"
             ."<p class='card-text'>{$this->getFullAddress()}</p>"
-            ."<a href='#' class='btn btn-primary btn-sm align-items-end'>PROPERTY DETAILS</a>"
+            ."<a href='displayPage.php?agentRef={$this->agentRef}' class='btn btn-primary btn-sm align-items-end'>PROPERTY DETAILS</a>"
             ."</div></div></div>";
 
         return $returnString;

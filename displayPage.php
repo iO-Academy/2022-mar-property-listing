@@ -3,8 +3,7 @@
 require_once 'vendor/autoload.php';
 use PennyLaneProperties\Property\{PropertyHydrator};
 use PennyLaneProperties\Database\DatabaseConnector;
-
-$agentRef = 'CSL123_100259';
+$agentRef = $_GET['agentRef'];
 
 $db = DatabaseConnector::getDbConnection();
 $property = PropertyHydrator::fetchPropertyDetailsFromDB($db, $agentRef);
