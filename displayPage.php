@@ -1,6 +1,7 @@
 <?php
 
 require_once 'vendor/autoload.php';
+
 use PennyLaneProperties\Property\{PropertyHydrator};
 use PennyLaneProperties\Database\DatabaseConnector;
 $agentRef = $_GET['agentRef'];
@@ -60,7 +61,8 @@ $propertyHtml = $property->displayPropertyPage();
                 <label for="exampleFormControlTextarea1">Your message here: </label>
                 <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Your message here..." maxlength="500" minlength="10" required></textarea>
             </div>
-            <input type="submit" class="submit_button" name="agent_ref" {value="$_GET['agentRef']"}>
+            <input type="hidden" name="agent_ref" value="<?=$_GET['agentRef']?>">
+            <input type="submit" class="submit_button" >
         </form>
     </div>
 </main>

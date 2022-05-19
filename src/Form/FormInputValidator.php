@@ -73,10 +73,10 @@ class FormInputValidator
     protected function inputValidation(string $inputData): string
     {
         $trimmedInput = trim($inputData);
-        if ((strlen($trimmedInput)>3) && (strlen($trimmedInput)<500)) {
-            $cleanedInput = htmlspecialchars($trimmedInput);
+        if ((strlen($trimmedInput)>=3) && (strlen($trimmedInput)<500)) {
+            return htmlspecialchars($trimmedInput);
         }
-        return $cleanedInput;
+      throw new Exception();
     }
 
     protected function emailValidation(string $email): string
