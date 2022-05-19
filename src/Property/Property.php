@@ -47,7 +47,13 @@ class Property
             . "<h5 class='card-title text-wrap'>{$this->getFullAddress()}</h5>"
             .  "<p class='card-text text-wrap'>£{$this->getFormatPrice()}</p>"
             .  "<p class='card-text text-wrap'>$this->bedrooms Bedrooms</p>"
-            .  "<p class='card-text text-wrap'>$this->description</p>";
+            .  "<p><a class='btn btn-primary' data-bs-toggle='collapse' href='#collapseExample' role='button' aria-expanded='false' aria-controls='collapseExample'>"
+            .  "Read Description</a></p>"
+            .  "<div class='collapse' id='collapseExample'>"
+            .  "<div>"
+            .  "<p>$this->description</p>"
+            .  "</div></div></div>"
+            .  "</div></div>";
     }
 
     /**
