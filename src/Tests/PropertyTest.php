@@ -78,7 +78,7 @@ class PropertyTest extends TestCase
         $sut->setAddress1($address_1);
         $sut->setImage($image);
 
-        $expected = "<div class='row mt-5'><div class='card mb-3 rounded card__status card__status--sale'><img class='img-fluid' src='https://dev.io-academy.uk/resources/property-feed/images/CSL123_100327_IMG_00.JPG'<div class='card-body'><h5 class='card-title text-wrap'>Hill Farm, Plough Hill Road, Nuneaton, CV11 6PE</h5><p class='card-text text-wrap'>£355,000</p><p class='card-text text-wrap'>6 Bedrooms</p><p class='card-text text-wrap'>Lorem Ipsum</p>";
+        $expected = "<div class='row mt-5'><div class='card mb-3 rounded card__status card__status--sale'><img class='img-fluid' src='https://dev.io-academy.uk/resources/property-feed/images/CSL123_100327_IMG_00.JPG'<div class='card-body'><h5 class='card-title text-wrap'>Hill Farm, Plough Hill Road, Nuneaton, CV11 6PE</h5><p class='card-text text-wrap'>£355,000</p><p class='card-text text-wrap'>6 Bedrooms</p><p><a class='btn btn-primary' data-bs-toggle='collapse' href='#collapseExample' role='button' aria-expanded='false' aria-controls='collapseExample'>Read Description</a></p><div class='collapse' id='collapseExample'><div><p>Lorem Ipsum</p></div></div></div></div></div>";
         $actual = $sut->displayPropertyPage();
         $this->assertEquals($expected,$actual);
     }
@@ -90,7 +90,7 @@ class PropertyTest extends TestCase
         $sut = new Property();
         $sut->setAddress1($address_1);
 
-        $expected = "<div class='row mt-5'><div class='card mb-3 rounded card__status card__status--sale'><img class='img-fluid' src='Assets/housePlaceholder.png'<div class='card-body'><h5 class='card-title text-wrap'>Hill Farm, Plough Hill Road, Nuneaton, CV11 6PE</h5><p class='card-text text-wrap'>£355,000</p><p class='card-text text-wrap'>6 Bedrooms</p><p class='card-text text-wrap'>Lorem Ipsum</p>";
+        $expected = "<div class='row mt-5'><div class='card mb-3 rounded card__status card__status--sale'><img class='img-fluid' src='Assets/housePlaceholder.png'<div class='card-body'><h5 class='card-title text-wrap'>Hill Farm, Plough Hill Road, Nuneaton, CV11 6PE</h5><p class='card-text text-wrap'>£355,000</p><p class='card-text text-wrap'>6 Bedrooms</p><p><a class='btn btn-primary' data-bs-toggle='collapse' href='#collapseExample' role='button' aria-expanded='false' aria-controls='collapseExample'>Read Description</a></p><div class='collapse' id='collapseExample'><div><p>Lorem Ipsum</p></div></div></div></div></div>";
         $actual = $sut->displayPropertyPage();
         $this->assertEquals($expected,$actual);
     }

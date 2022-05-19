@@ -20,6 +20,16 @@ class DatabaseImporter
     protected function createTables()
     {
         $query = $this->db->prepare("SET NAMES utf8mb4;
+                    CREATE TABLE `customer_queries` (
+                      `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                      `customer_name` varchar(100) DEFAULT NULL,
+                      `email` varchar(100) DEFAULT NULL,
+                      `phone_number` varchar(20) DEFAULT NULL,
+                      `message` varchar(600) DEFAULT NULL,
+                      `date_time_submitted` datetime DEFAULT NULL,
+                      `agent_ref` varchar(40) DEFAULT NULL,
+                      PRIMARY KEY (`id`)
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
                     DROP TABLE IF EXISTS `properties`;
                     CREATE TABLE `properties` (
                       `id` int(11) unsigned NOT NULL AUTO_INCREMENT,

@@ -52,3 +52,34 @@ body {
     content: 'LET AGREED';
     background: red;
 }
+
+/*form styling*/
+.form_container{
+    background: #005275 ;
+    border-style: solid;
+    border-radius: 25px;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.enquiry_form{
+    display: flex;
+    flex-direction: column;
+}
+
+h2{
+    padding: 30px 0px;
+}
+
+.form-group{
+    padding: 2px 10px;
+}
+
+.submit_button{
+    align-self: flex-end;
+    margin-right: 10px;
+    color: #040505;
+    border-radius: 10px;
+    border:none;
+    padding: 10px;
+}
