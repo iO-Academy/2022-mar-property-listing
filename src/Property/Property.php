@@ -85,7 +85,7 @@ class Property
             return 'card__status--sale';
         } elseif ($this->status == 'Let Agreed') {
             return 'card__status--letAgreed';
-        } elseif ($this->status == 'To let'){
+        } elseif ($this->status == 'To Let'){
             return 'card__status--toLet';
         }
         return NULL;

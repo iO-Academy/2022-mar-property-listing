@@ -32,7 +32,7 @@ $propertyHtml = $property->displayPropertyPage();
 <body>
 
 <div class="container-fluid justify-content-center navbar">
-    <img src="Assets/pennyLaneLogo2.svg">
+    <a href="index.php"><img src="Assets/pennyLaneLogo2.svg"></a>
 </div>
 <main class="container">
     <div class="row py-4 ">

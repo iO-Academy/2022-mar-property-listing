@@ -18,11 +18,11 @@ class PropertyHydrator
 
         if (isset($_GET['type'])) {
             if ($_GET['type'] == 1) {
-                $queryString .= " WHERE `type`= '1'";
+                $queryString .= " WHERE `type`= 1";
             }
 
             if ($_GET['type'] == 2) {
-                $queryString .= " WHERE `type`= '2'";
+                $queryString .= " WHERE `type`= 2";
             }
         }
 
