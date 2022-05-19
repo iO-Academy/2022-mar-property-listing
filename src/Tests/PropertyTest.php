@@ -148,4 +148,24 @@ class PropertyTest extends TestCase
         $this->assertEquals($expected,$actual);
     }
 
+    public function testGetImageUrl_Null()
+    {
+        $sut = new Property();
+
+        $expected = 'Assets/housePlaceholder.png';
+        $actual = $sut->getImageUrl();
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    public function testGetImageUrl_ImageGiven()
+    {
+        $sut = new Property();
+        $sut->setImage("CSL123_100327_IMG_00.JPG");
+
+        $expected = 'https://dev.io-academy.uk/resources/property-feed/images/CSL123_100327_IMG_00.JPG';
+        $actual = $sut->getImageUrl();
+
+        $this->assertEquals($expected, $actual);
+    }
 }

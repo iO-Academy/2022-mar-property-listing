@@ -6,7 +6,13 @@ use PennyLaneProperties\Database\DatabaseConnector;
 $agentRef = $_GET['agentRef'];
 
 $db = DatabaseConnector::getDbConnection();
-$property = PropertyHydrator::fetchPropertyDetailsFromDB($db, $agentRef);
+try {
+    $property = PropertyHydrator::fetchPropertyDetailsFromDB($db, $agentRef);
+} catch(TypeError $e) {
+    header("Location: index.php");
+    exit;
+}
+
 
 $propertyHtml = $property->displayPropertyPage();
 
