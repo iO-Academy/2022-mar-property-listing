@@ -4,14 +4,14 @@ namespace PennyLaneProperties\Property;
 
 class Property
 {
-    protected string $agentRef;
-    protected string $image;
+    protected string $agentRef = "CSL123_100259";
+    protected ?string $image = NULL;
     protected string $address_1;
-    protected string $address_2;
-    protected string $town;
-    protected string $postcode;
-    protected string $status;
-    protected string $type;
+    protected string $address_2 = "Plough Hill Road";
+    protected string $town = "Nuneaton";
+    protected string $postcode = "CV11 6PE";
+    protected string $status = "For Sale";
+    protected string $type = "Sale";
     protected int $bedrooms;
     protected string $description;
     protected int $price;
@@ -149,5 +149,22 @@ class Property
     {
         return $this->agentRef;
     }
+
+    /**
+     * @param string $image
+     */
+    public function setImage(string $image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @param string $address_1
+     */
+    public function setAddress1(string $address_1): void
+    {
+        $this->address_1 = $address_1;
+    }
+
 
 }
