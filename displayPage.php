@@ -8,10 +8,7 @@ $agentRef = $_GET['agentRef'];
 $db = DatabaseConnector::getDbConnection();
 $property = PropertyHydrator::fetchPropertyDetailsFromDB($db, $agentRef);
 
-
-
 $propertyHtml = $property->displayPropertyPage();
-
 
 ?>
 

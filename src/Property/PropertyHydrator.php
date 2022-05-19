@@ -28,7 +28,13 @@ class PropertyHydrator
         $query->bindParam(':agentRef', $agentRef);
         $query->setFetchMode(PDO::FETCH_CLASS,Property::class);
         $query->execute();
-        return $query->fetch();
+        $result = $query->fetch();
+
+        if($result) {
+            return $result;
+        }
+        header("Location: index.php");
+        exit;
     }
 
 }

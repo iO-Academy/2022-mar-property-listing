@@ -15,7 +15,6 @@ class Property
     protected int $bedrooms = 6;
     protected string $description = 'Lorem Ipsum';
     protected int $price = 355000;
-    protected string $imageUrl = "Assets/housePlaceholder.png";
 
     public function displayCard(): string
     {
@@ -25,10 +24,8 @@ class Property
         $returnString .= " border border-dark position-relative'>"
             . "<span class='visually-hidden'>New alerts</span>"
             . "<img src='";
-        if($this->image){
-            $this->imageUrl = 'https://dev.io-academy.uk/resources/property-feed/images/' . $this->image;
-        }
-        $returnString .= "{$this->imageUrl}"
+
+        $returnString .= "{$this->getImageUrl()}"
             . "' class='card-img-top' alt='Photo of {$this->getFullAddress()}'>"
             ."<div class='card-body'>"
             ."<p class='card-text'>{$this->getFullAddress()}</p>"
@@ -43,13 +40,9 @@ class Property
      */
     public function displayPropertyPage(): string
     {
-        if($this->image){
-            $this->imageUrl = 'https://dev.io-academy.uk/resources/property-feed/images/' . $this->image;
-        }
-
         return "<div class='row mt-5'>"
             . "<div class='card mb-3 rounded card__status {$this->getStatusClass()}'>"
-            . "<img class='img-fluid' src='$this->imageUrl'"
+            . "<img class='img-fluid' src='{$this->getImageUrl()}'"
             . "<div class='card-body'>"
             . "<h5 class='card-title text-wrap'>{$this->getFullAddress()}</h5>"
             .  "<p class='card-text text-wrap'>£{$this->getFormatPrice()}</p>"
@@ -69,6 +62,14 @@ class Property
         };
 
         return $fullAddress;
+    }
+    
+    public function getImageUrl(): string
+    {
+        if($this->image){
+            return 'https://dev.io-academy.uk/resources/property-feed/images/' . $this->image;
+        }
+        return 'Assets/housePlaceholder.png';
     }
 
     public function getFormatPrice(): string
