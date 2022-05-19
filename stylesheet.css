@@ -65,7 +65,6 @@ body {
 .enquiry_form{
     display: flex;
     flex-direction: column;
-
 }
 
 h2{
