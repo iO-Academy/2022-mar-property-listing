@@ -38,6 +38,31 @@ $propertyHtml = $property->displayPropertyPage();
     <div class="row py-4 ">
         <?=$propertyHtml?>
     </div>
+
+    <div class = "container col-sm-12 col-md-3 form_container">
+        <h2 class ="text-center text-uppercase"> Enquiry Form</h2>
+        <form action="formValidator.php" class="enquiry_form" method="post">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Name</label>
+                <input name="customer_name" type="text" class="form-control" id="exampleFormControlInput1" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput2">Email address</label>
+                <input name="email" type="email" class="form-control px-5" id="exampleFormControlInput2" placeholder="name@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput3">Phone number</label>
+                <input name="phone_number" type="text" class="form-control" id="exampleFormControlInput3" >
+            </div>
+
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Your message here: </label>
+                <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Your message here..." maxlength="500" minlength="10" required></textarea>
+            </div>
+            <input type="submit" class="submit_button" name="agent_ref" {value="$_GET['agentRef']"}>
+        </form>
+    </div>
 </main>
 </body>
 </html>
