@@ -40,6 +40,15 @@ class ValidatorTest extends TestCase
 
     }
 
+    public function testValidateAndSanitiseText_ShortText()
+    {
+        $text = "b";
+
+        $this->expectException(Exception::class);
+
+        Validator::validateAndSanitiseEmail($text);
+    }
+
     public function testValidateAndSanitiseTextInput_CorrectText()
     {
         $text = "This is a valid input";
@@ -50,14 +59,23 @@ class ValidatorTest extends TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    public function testValidateAndSanitiseEmail_WhitespacedText()
+    public function testValidateAndSanitiseText_WhitespacedText()
     {
-        $text = "  This is a valid input"   ;
+        $text = "  This is a valid input"  ;
 
         $expected = "This is a valid input";
         $actual = Validator::validateAndSanitiseTextInput($text);
 
         $this->assertEquals($expected, $actual);
+    }
+
+    public function testValidateAndSanitiseText_LongText()
+    {
+        $text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus";
+
+        $this->expectException(Exception::class);
+
+        Validator::validateAndSanitiseEmail($text);
     }
 
     public function testValidateAndSanitiseEmail_ShortString()
@@ -97,10 +115,6 @@ class ValidatorTest extends TestCase
         Validator::validatePhoneNumber($phone);
 
     }
-
-
-
-
 
 
 }
