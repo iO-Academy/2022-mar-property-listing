@@ -10,6 +10,16 @@ foreach ($properties as $property){
     $cardsHtml .= $property->displayCard();
 }
 
+$filterHeader = '';
+if (isset($_GET['type'])){
+    if ($_GET['type'] == 1) {
+        $filterHeader = 'Sales';
+    }
+    if ($_GET['type'] == 2) {
+        $filterHeader = 'Lettings';
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +35,28 @@ foreach ($properties as $property){
     </head>
     <body>
         <div class="container-fluid justify-content-center navbar">
-            <img src="Assets/pennyLaneLogo2.svg">
+            <a href="index.php"><img src="Assets/pennyLaneLogo2.svg"></a>
+        </div>
+        <form method="get">
+            <div class="container button_bar">
+                <div class="d-flex p-4 justify-content-center align-items-baseline gap-3">
+                    <div class="column gap-3">
+                        <p class="text-center text-uppercase">Filter By:</p>
+                    </div>
+                    <div class="column gap-3">
+                        <button type="submit" name="type" value="1" class="btn btn-success m-0 text-uppercase">Sales</button>
+                    </div>
+                    <div class="column gap-3">
+                        <button type="submit" name="type" value="2" class="btn btn-primary text-uppercase">Lettings</button>
+                    </div>
+                    <div class="column gap-3">
+                        <button type="submit" class="btn btn-secondary text-uppercase">Clear Filter</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="container d-flex justify-content-center">
+            <h2 class="text-uppercase font-weight-bold"><?=$filterHeader?></h2>
         </div>
         <main class="container">
             <div class="row py-4 ">

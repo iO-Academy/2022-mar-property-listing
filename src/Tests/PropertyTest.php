@@ -129,7 +129,7 @@ class PropertyTest extends TestCase
     public function testGetStatus_ToLet()
     {
         $sut = new Property();
-        $sut->setStatus("To let");
+        $sut->setStatus("To Let");
 
         $expected = "card__status--toLet";
         $actual = $sut->getStatusClass();
