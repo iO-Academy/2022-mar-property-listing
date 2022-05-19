@@ -38,9 +38,12 @@ class Property
         return $returnString;
     }
 
+    /**
+     * @return string
+     */
     public function displayPropertyPage(): string
     {
-        $returnString = "<div class='row mt-5'>"
+        return "<div class='row mt-5'>"
             . "<div class='card mb-3 rounded card__status {$this->getStatusClass()}'>"
             . "<img class='img-fluid' src='https://dev.io-academy.uk/resources/property-feed/images/$this->image'"
             . "<div class='card-body'>"
@@ -48,9 +51,6 @@ class Property
             .  "<p class='card-text text-wrap'>£{$this->getFormatPrice($this->price)}</p>"
             .  "<p class='card-text text-wrap'>$this->bedrooms Bedrooms</p>"
             .  "<p class='card-text text-wrap'>$this->description</p>";
-
-
-        return $returnString;
     }
 
     /**
@@ -67,10 +67,9 @@ class Property
         return $fullAddress;
     }
 
-    public function getFormatPrice(int $price): string
+    public function getFormatPrice(): string
     {
-        $formatPrice = number_format($this->getPrice(),0 , ".", ",");
-        return $formatPrice;
+        return number_format($this->price,0 , ".", ",");
     }
 
     public function getStatusClass(): string
@@ -84,62 +83,6 @@ class Property
         } else {
             return 'card__status--toLet';
         }
-    }
-
-    /**
-     * @return int
-     */
-    public function getBedrooms(): int
-    {
-        return $this->bedrooms;
-    }
-
-    /**
-     * @param int $bedrooms
-     */
-    public function setBedrooms(int $bedrooms): void
-    {
-        $this->bedrooms = $bedrooms;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param string $description
-     */
-    public function setDescription(string $description): void
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPrice(): int
-    {
-        return $this->price;
-    }
-
-    /**
-     * @param int $price
-     */
-    public function setPrice(int $price): void
-    {
-        $this->price = $price;
-    }
-
-    /**
-     * @return string
-     */
-    public function getImage(): string
-    {
-        return $this->image;
     }
 
     /**
