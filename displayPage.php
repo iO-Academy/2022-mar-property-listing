@@ -1,17 +1,20 @@
 <?php
 
 require_once 'vendor/autoload.php';
-
+use PennyLaneProperties\Property\{PropertyHydrator};
 use PennyLaneProperties\Database\DatabaseConnector;
-use PennyLaneProperties\DisplayPage\DisplayPageHydrator;
+$agentRef = $_GET['agentRef'];
 
-$displayHydrator = new DisplayPageHydrator();
+$db = DatabaseConnector::getDbConnection();
+$property = PropertyHydrator::fetchPropertyDetailsFromDB($db, $agentRef);
 
-$db = DatabaseConnector::connect();
-$propertyData = $displayHydrator->getProperty($db, 'CSL123_100259');
-$formattedPrice = number_format($propertyData ["price"], 0, '.', ',');
+
+
+$propertyHtml = $property->displayPropertyPage();
+
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,25 +27,14 @@ $formattedPrice = number_format($propertyData ["price"], 0, '.', ',');
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container-fluid justify-content-center navbar">
-        <img src="Assets/pennyLaneLogo2.svg">
-    </div>
-    <div class="container">
 
-        <div class="row mt-5">
-            <div class="card mb-3 rounded card__status card__status--sold">
-                <img class="img-fluid" src="<?php echo "https://dev.io-academy.uk/resources/property-feed/images/{$propertyData["image"]}" ?>"  class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title text-wrap"><?php echo "{$propertyData["address_1"]}, {$propertyData["address_2"]}, {$propertyData["town"]}, {$propertyData["postcode"]}" ?></h5>
-                    <p class="card-text text-wrap"><?php echo "£{$formattedPrice}" ?></p>
-                    <p class="card-text text-wrap"><?php echo "{$propertyData["bedrooms"]} Bedrooms"?></p>
-                    <p class="card-text text-wrap"><?php echo "{$propertyData ["description"]}" ?></p>
-                </div>
-            </div>
-        </div>
-
+<div class="container-fluid justify-content-center navbar">
+    <img src="Assets/pennyLaneLogo2.svg">
+</div>
+<main class="container">
+    <div class="row py-4 ">
+        <?=$propertyHtml?>
     </div>
+</main>
 </body>
 </html>
-
-
